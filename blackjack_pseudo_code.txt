@@ -1,0 +1,42 @@
+
+1) Ask if the player would like to play blackjack.
+2) If yes, ask the player their name.
+3) Start the player off with a starting balance of x chips.
+
+4) Establish a 'shuffled' deck of cards. 
+      - can establish data set of values, and then separate set of suits and join them somehow to produce an array of 52 cards.
+      - can use a shuffle function to then 'shuffle the deck'.
+      - establish count of cards remaining in deck.
+      - Aces need to be worth 1 or 11 depending on value
+
+4.5) Insert:  Ask player how much they would like to bet.
+      - must be below player balance but greater than zero.
+      
+5) Establish a method for dealing the initial cards.
+       - if player is dealt blackjack, they automatically win 1.5 times their bet.
+       - update count of cards remaining in deck
+       - update player balance
+
+6) Ask the player if they'd like to hit or stay.
+      - if number < 21 then ask again looping until player stays or busts
+      - player automatically loses if hand > 21
+      - if player stays AND hand is 21 or less, then dealer plays
+      
+7) If dealer hand is < 17 dealer hits
+      - repeat if dealer hand is still < 17
+      - if dealer hand >= 17 or <= 21, dealer stays
+      - if dealer hand > 21, dealer automatically loses
+      
+8) if both player and dealer stay on numbers <= 21
+      - evaluate both hands
+      - if player > dealer...player wins 1x their bet
+      - if dealer > player...player loses bet
+      - if dealer = player...it's a push and player keeps bet.
+      - update player balance
+      
+9) ask if player would like to play another hand
+      - if yes, and remaining card count is greater than > x, repeat from step 4.5
+      - if yes, and remaining card count is <= x, repeate from step 4
+      - if no, exit program.
+      
+      
