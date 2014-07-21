@@ -57,12 +57,17 @@ end
 
 def hand_value(cards)
   value = 0
+  val_arr = []
   cards.each do |sub_array|
-      if sub_array.last == 11 && value > 10
-        value = value + 1
-      else
-        value = value + sub_array.last
-      end
+      val_arr << sub_array.last
+      val_arr.sort!
+    end
+  val_arr.each do |val|
+    if val == 11 && value > 10
+      value = value + 1  
+    else
+      value = value + val
+    end
   end
   return value
 end
@@ -77,6 +82,10 @@ player_cards = []
 dealer_cards = []
 player_bet = 0
 
+
+# clear screen for game
+
+system 'clear'
 
 # invite player to play blackjack
 
@@ -108,6 +117,8 @@ sleep(1)
 puts "\n"
 shuffle(game_deck)
 puts "\n"
+
+# test deck:  game_deck = [['5',5],['10',10],['A',11],['5',5],['J',10],['4',4]]
 
 # start the game loop
 
@@ -231,6 +242,7 @@ while player_balance > 0 do
       if player_answer == 'n'
         break
       else
+        system 'clear'
         player_bet = 0
         player_cards = []
         dealer_cards = []
@@ -244,6 +256,7 @@ while player_balance > 0 do
     break
   end
 
+  puts "#{player_name} balance - #{player_balance}"
   puts "cards remaining - #{game_deck.length}"
 
 end
